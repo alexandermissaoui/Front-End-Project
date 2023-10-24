@@ -1,6 +1,6 @@
 import React from 'react';
 // import './Home.css'
-// import Button from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from 'react-router-dom';
@@ -45,7 +45,8 @@ function BasicExample() {
           bulk of the card's content.
         </Card.Text>
            
-        
+        <Button className='button' >Reserve</Button>
+
       </Card.Body>
    
     </Card>
