@@ -4,12 +4,16 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/esm/Container';
+import './home.css'
 
 
 function BasicExample() {
   return (
-    
     <Link to={`/Detail`} >
+
+    <Container className='container'>
+
     <Card style={{ width: '18rem' }}>
       
       <Card.Body>
@@ -22,6 +26,7 @@ function BasicExample() {
       </Card.Body>
    
     </Card>
+    </Container>
     </Link>
 
     

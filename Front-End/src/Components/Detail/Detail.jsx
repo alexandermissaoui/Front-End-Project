@@ -7,11 +7,13 @@ import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/esm/Container';
 import './detail.css'
 
+
+
 function BasicExample() {
   return (
     
     <Container className='detail'>
-    <Card style={{ width: '60rem' }}>
+    <Card style={{ width: '50rem' }}>
       
 
       <Card.Body>
@@ -42,15 +44,7 @@ function BasicExample() {
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
         </Card.Text>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        
+           
         
       </Card.Body>
    
@@ -61,5 +55,7 @@ function BasicExample() {
     
   );
 }
+
+
 
 export default BasicExample;

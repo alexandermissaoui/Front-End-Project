@@ -1,14 +1,17 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './login.css'
+import Container from 'react-bootstrap/esm/Container';
+
 
 function TextControlsExample() {
   return (
     
-    // <Container className='' >
+    <Container className='login' >
 
-    <Form className='login'>
+    <Form className=''>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Email </Form.Label>
         <Form.Control type="email" placeholder="name@example.com" />
@@ -17,14 +20,16 @@ function TextControlsExample() {
         <Form.Label>Password</Form.Label>
         <Form.Control type="password"  />
       </Form.Group>
-{/* 
-      <Button >Sign In</Button>
-      <Link href="/Register">Register</Link>
-    */}
+
+     
+      {/* <Link href="/Register">Register</Link> */}
+
+      <Button >Log In</Button>
+   
       
     </Form>
 
-    // </Container>
+   </Container>
   );
 }
 
