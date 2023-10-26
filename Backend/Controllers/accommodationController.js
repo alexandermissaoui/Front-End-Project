@@ -1,11 +1,11 @@
 // const express = require('express');
 // const router = express.Router();
 const router = require('express').Router()
-const userModel = require('../Models/accommodationModel')
+const accommodationModel = require('../Models/accommodationModel')
 
-router.get('/', userModel.getAllAccommodations);
-router.get('/:id', userModel.getAccommodationById)
-router.post('/', userModel.createAccommodationUser)
+router.get('/', accommodationModel.getAllAccommodations);
+router.get('/:id', accommodationModel.getAccommodationById)
+router.post('/', accommodationModel.createNewAccommodation)
 
 
 module.exports = router;

@@ -7,6 +7,7 @@ app.use(express.urlencoded({ extended: false }))
 
 
 app.use('/api/users', require('./Controllers/userController'));
+app.use('/api/accommodations', require('./Controllers/accommodationController'));
 
 
 
