@@ -2,7 +2,7 @@ const app = require('./app');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const PORT = process.env.PORT || 7777
+const PORT = process.env.PORT || 3030
 
 app.listen(PORT, () => console.log('server running on ' + PORT))
 
