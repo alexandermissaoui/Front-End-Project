@@ -1,38 +1,93 @@
-const Accommodation = require('../Schemas/accommodationSchema')
+const Accommodation = require('../Schemas/accommodationSchema');
 
-/*
-  GET /api/accommodations
-  hämtar alla 
-*/
-exports.getAllAccommodations = (req, res) => {
+
+  exports.createNewAccommodation = (req, res) => {
+    const { title, host, location, description, price, imageUrl } = req.body;
+  
+    if(!title || !host || !location || !description || !price || !imageUrl) {
+      res.status(400).json({
+        message: 'You need to enter all the fields'
+      })
+      return
+    }
+  
+    Accommodation.create({ title, host, location, description, price, imageUrl })
+      .then(data => res.status(201).json(data))
+      .catch(() => res.status(500).json({ message: 'Someting went wrong when adding the accommodation'}))
+  }
+
+
+
+exports.getAccommodations = (req, res) => {
+
   Accommodation.find()
-    .then(data => {
-      res.status(200).json(data)
+    .then(accommodations => {
+      res.status(200).json(accommodations)
+    })
+    .catch(() => {
+      res.status(500).json({
+        message: 'Could not get the accommodations'
+      })
     })
 }
 
-/*
-  POST /api/accommodations
-  skapar en ny accommodation
-*/
-exports.createNewAccommodation = (req, res) => {
-  const {host, location, description, price } = req.body
 
-  Accommodation.create({host, location, description, price})
-    .then(data => {
-      res.status(201).json(data)
-    })
 
-}
-
-/*
-  GET /api/accommodations/:id
-  hämtar ett specifikt boende med hjälp av id
-*/
 exports.getAccommodationById = (req, res) => {
 
-  Accommodation.findOne({ _id: req.params.id })
-    .then(data => {
-      res.status(200).json(data)
+  Accommodation.findById(req.params.id)
+    .then(accommodation => {
+      if(!accommodation) {
+        res.status(404).json({ message: 'could not find that accommodation'})
+        return
+      }
+
+      res.status(200).json( accommodation ) 
+    })
+    .catch(() => {
+      res.status(500).json({
+        message: 'Someting went wrong'
+      })
+    })
+  }
+
+
+
+exports.updateAccommodation = (req, res) => {
+
+  Accommodation.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then(accommodation => {
+      if(!accommodation) {
+        res.status(404).json({ message: 'could not find that accommodation'})
+        return
+      }
+
+      res.status(200).json(accommodation)
+    })
+    .catch(() => {
+      res.status(500).json({
+        message: 'Someting went wrong when updating the accommodation'
+      })
+    })
+
+}
+
+
+
+exports.deleteAccommodation = (req, res) => {
+
+  Accommodation.findByIdAndDelete(req.params.id)
+    .then(accommodation => {
+      if(!accommodation) {
+        res.status(404).json({ message: 'could not find that accommodation'})
+        return
+      }
+
+      res.status(200).json({ id: accommodation._id })
+    })
+    .catch(() => {
+      res.status(500).json({
+        message: 'Someting went wrong when deleteing the accommodation'
+      })
     })
 }

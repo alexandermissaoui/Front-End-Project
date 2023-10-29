@@ -12,10 +12,13 @@ function BasicExample() {
     <Card style={{ width: '45rem' }}> 
         
       <Card.Body>
-      <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Title>Booked Appartement</Card.Title>
+      {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+        <Card.Title>Accommodation</Card.Title>
         <Card.Text>
           Date:
+        </Card.Text>
+        <Card.Text>
+          Location:
         </Card.Text>
         <Card.Text>
           Price:

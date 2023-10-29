@@ -14,7 +14,7 @@ function BasicExample() {
 
     <Container className='container'>
 
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '18rem', textDecoration: 'none' }}>
       
       <Card.Body>
       <Card.Img variant="top" src="holder.js/100px180" />

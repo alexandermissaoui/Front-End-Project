@@ -1,13 +1,20 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
-const userSchema = mongoose.Schema({
-  // _id: mongoose.Types.ObjectId,
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
-  email: { type: String, required: true },
-  password: { type: String, required: true }
+const userSchema = new Schema({
+
+  firstName:      { type: String, required: true },
+  lastName:       { type: String, required: true },
+  email:          { type: String, required: true, unique: true },
+  passwordHash:   { type: String, required: true, select: false }
+
+}, { timestamps: true })
+
+
+userSchema.virtual('displayName').get(function() {
+  return this.firstName + ' ' + this.lastName;
 })
 
-const User = mongoose.model('user', userSchema)
 
-module.exports = User
+
+module.exports = mongoose.model('User', userSchema);
