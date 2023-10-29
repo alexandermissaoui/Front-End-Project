@@ -4,7 +4,6 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import "bootstrap/dist/css/bootstrap.min.css";
-import './navbar.css'
 
 function BasicExample() {
   return (
@@ -15,8 +14,8 @@ function BasicExample() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
           <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/About">About</Nav.Link>
-            <Nav.Link href="/Bookings">Bookings</Nav.Link>
+            <Nav.Link href="/About">About Us</Nav.Link>
+            <Nav.Link href="/Reservation">Reservations</Nav.Link>
             <Nav.Link href="/Support">Support</Nav.Link>
            
             <NavDropdown title="Login" id="basic-nav-dropdown" className='dropdown'>
