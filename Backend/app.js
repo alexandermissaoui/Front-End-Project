@@ -10,5 +10,6 @@ app.use(express.json())
 // Controllers
 app.use('/api/users', require('./Controllers/userController'))
 app.use('/api/accommodations', require('./Controllers/accommodationController'))
+app.use('/api/reservations', require('./Controllers/reservationController'))
 
 module.exports = app;
