@@ -55,7 +55,7 @@ function ListExample() {
               </a>
             </p>
             <p>
-              <a href='/Reservation' className='text-reset'>
+              <a href='/Reservations' className='text-reset'>
                 My Reservations
               </a>
             </p>

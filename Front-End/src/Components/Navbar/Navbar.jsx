@@ -15,7 +15,7 @@ function BasicExample() {
           <Nav className="me-auto">
           <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/About">About Us</Nav.Link>
-            <Nav.Link href="/Reservation">Reservations</Nav.Link>
+            <Nav.Link href="/Reservations">Reservations</Nav.Link>
             <Nav.Link href="/Support">Support</Nav.Link>
            
             <NavDropdown title="Login" id="basic-nav-dropdown" className='dropdown'>

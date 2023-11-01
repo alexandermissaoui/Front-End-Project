@@ -1,36 +1,53 @@
 import React from 'react';
-// import './Home.css'
-// import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Accordion from 'react-bootstrap/Accordion';
 import "bootstrap/dist/css/bootstrap.min.css";
-import './about.css'
+import './about.css';
 
-function BasicExample() {
+const About = () => {
   return (
-
-    <Accordion defaultActiveKey="0" className='about'>
-    <Accordion.Item eventKey="0">
-      <Accordion.Header>About Us</Accordion.Header>
-      <Accordion.Body>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-        culpa qui officia deserunt mollit anim id est laborum. 
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Exercitationem, sapiente quod ipsam quae animi, 
-        soluta tempora eligendi laudantium repudiandae voluptatem ipsum molestiae iusto? 
-        Voluptatibus, aperiam natus qui nihil autem iure?
-      </Accordion.Body>
-    </Accordion.Item>
-   
-  </Accordion>
-
-    
+    <div className="about-container">
+      <h1 className='h1 about'>ABOUT</h1>
+      <div className='image-container'>
+        <img
+          className='image'
+          src="https://neuro.se/media/13372/computer-4795762_1280.jpg?center=0.57062146892655363,0.44736842105263158&mode=crop&width=830&height=440&rnd=132816084000000000"
+          alt="Coding Space"
+        />
+      </div>
+      <div className='text'>
+        <p className='cp1'>
+          Welcome to DevBnb: Where Developers Feel at Home
+        </p>
+        <p>
+          Are you a developer looking for a comfortable and inspiring space to code, collaborate, and connect with like-minded individuals? Look no further than DevBnb - your ultimate Airbnb for developers!
+        </p>
+        <p>
+          At DevBnb, we understand the unique needs of developers. Whether you're a seasoned pro or just starting your coding journey, our platform offers a curated selection of developer-friendly accommodation around the world.
+        </p>
+        <p>
+          From cozy coding corners to fully-equipped tech havens, each listing is vetted to ensure it meets the standards of the coding community.
+        </p>
+        <p className='cp2'>
+          Why DevBnb?
+        </p>
+        <p>
+          Developer-Focused Amenities: Enjoy high-speed internet, ergonomic workstation, and coding-friendly environment tailored to boost your productivity.
+        </p>
+        <p>
+          Community Networking: Connect with fellow developers, attend coding meetups, and collaborate on exciting projects, all within the comfort of your DevBnb space.
+        </p>
+        <p>
+          Global Reach: Explore coding-friendly accommodations in tech hubs worldwide, allowing you to work and travel seamlessly.
+        </p>
+        <p>
+          Secure and Trusted: Rest easy knowing that your stay is secure, with reliable hosts and verified listings designed specifically for developers.
+        </p>
+        <p>
+          Make DevBnb your home away from home and elevate your coding experience.
+          Book your stay today and unlock a world of opportunities for learning, collaboration, and innovation.
+        </p>
+      </div>
+    </div>
   );
 }
 
-export default BasicExample;
+export default About;

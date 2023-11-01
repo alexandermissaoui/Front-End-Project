@@ -28,7 +28,7 @@ function BasicExample() {
 
         <Card.Text>
           Host: {accommodation.host}
-          Location {accommodation.location}
+          Location: {accommodation.location}
           Price/Night: ${accommodation.price}
         </Card.Text>
        
