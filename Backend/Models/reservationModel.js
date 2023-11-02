@@ -2,16 +2,16 @@ const Reservation = require('../Schemas/reservationSchema');
 
 
   exports.createNewReservation = (req, res) => {
-    const { title, host, location, description, price, imageUrl, checkin, checkout, } = req.body;
+    const { title, host, location, description, price, imageUrl, accommodation, checkin, checkout, } = req.body;
   
-    if(!title || !host || !location || !description || !price || !imageUrl || !checkin || !checkout) {
+    if(!title || !host || !location || !description || !price || !imageUrl ||  !accommodation || !checkin || !checkout) {
       res.status(400).json({
         message: 'You need to enter all the fields'
       })
       return
     }
   
-    Reservation.create({ title, host, location, description, price, imageUrl, checkin, checkout })
+    Reservation.create({ title, host, location, description, price, imageUrl, accommodation, checkin, checkout })
       .then(data => res.status(201).json(data))
       .catch(() => res.status(500).json({ message: 'Someting went wrong when adding the reservation'}))
   }

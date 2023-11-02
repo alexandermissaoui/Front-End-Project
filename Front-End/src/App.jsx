@@ -8,12 +8,15 @@ import Login from './Pages/Login/Login'
 import Register from './Pages/Register/Register'
 import Detail from './Pages/Detail/Detail.jsx'
 import Reservations from './Pages/Reservations/Reservations'
+import AccommodationProvider from './Context/AccommodationContext'
 
 
 
 function App() {
   return (
     <BrowserRouter>
+        <AccommodationProvider>
+
       <Navbar />
       <div className="container">
         <Routes>
@@ -23,11 +26,15 @@ function App() {
           <Route path='login' element={<Login />} />
           <Route path='register' element={<Register />} />
           <Route path='detail' element={<Detail />} />
-          <Route path='reservations/:id' element={<Reservations />} />
+          {/* <Route path='reservations/:id' element={<Reservations />} /> */}
+          <Route path="/Detail/:id" render={(props) => <BasicExample accommodation={props.accommodation} />} />
+
           
         </Routes>
       </div>
       <Footer />
+      </AccommodationProvider>
+
     </BrowserRouter>
   )
 }
