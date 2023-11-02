@@ -25,9 +25,9 @@ function App() {
           <Route path='support' element={<Support />} />
           <Route path='login' element={<Login />} />
           <Route path='register' element={<Register />} />
-          <Route path='detail' element={<Detail />} />
+          {/* <Route path='detail' element={<Detail />} /> */}
           {/* <Route path='reservations/:id' element={<Reservations />} /> */}
-          <Route path="/Detail/:id" render={(props) => <BasicExample accommodation={props.accommodation} />} />
+          <Route path="/Detail/:id" element={<Detail />} />
 
           
         </Routes>
