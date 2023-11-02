@@ -23,40 +23,41 @@ function ListExample() {
           </MDBCol>
 
           <MDBCol md='2' lg='2' xl='2' className='mx-auto mb-4'>
-            <h6 className='text-uppercase fw-bold mb-4'></h6>
-            <p>
-              <a href='/Home' className='text-reset'>
-                Our Accommodations
-              </a>
-            </p>
-            <p>
-              <a href='/About' className='text-reset'>
-                About Us
-              </a>
-            </p>
+            <h6 className='text-uppercase fw-bold mb-4'>Join Us</h6>
             <p>
               <a href='/Login' className='text-reset'>
                 Sign Up
               </a>
             </p>
+            <p>
+              <a href='/Register' className='text-reset'>
+                Register
+              </a>
+            </p>         
+            <p>
+              <a href='/About' className='text-reset'>
+                About Us
+              </a>
+            </p>
+      
         
           </MDBCol>
 
           <MDBCol md='3' lg='2' xl='2' className='mx-auto mb-4'>
-            <h6 className='text-uppercase fw-bold mb-4'></h6>
+            <h6 className='text-uppercase fw-bold mb-4'>Get Started</h6>
             <p>
-              <a href='/Register' className='text-reset'>
-                Register
+              <a href='/Home' className='text-reset'>
+                Our Accommodations
+              </a>
+            </p>          
+            <p>
+              <a href='/Reservations' className='text-reset'>
+                My Reservations
               </a>
             </p>
             <p>
               <a href='/Support' className='text-reset'>
                 Support
-              </a>
-            </p>
-            <p>
-              <a href='/Reservations' className='text-reset'>
-                My Reservations
               </a>
             </p>
      
