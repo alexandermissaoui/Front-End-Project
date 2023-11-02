@@ -54,7 +54,7 @@ exports.loginUserWithEmailAndPassword = (req, res) => {
 
   User.findOne({ email }).select("+passwordHash")
   .then(user => {
-
+    console.log(user)
     if(!user) {
       return res.status(401).json({
         message: 'Incorrect credentials'
@@ -63,8 +63,8 @@ exports.loginUserWithEmailAndPassword = (req, res) => {
 
     bcrypt.compare(password, user.passwordHash, (err, result) => {
       if(err) {
-        return res.status(500).json({
-          message: 'Something went wrong when decrypting the password'
+        return res.status(401).json({
+          message: 'Something went wrong with authentification'
         })
       }
 
@@ -78,6 +78,9 @@ exports.loginUserWithEmailAndPassword = (req, res) => {
 
     })
   })
+  .catch(error => {
+    console.error("Unable to login", error)
+  }) 
 
 }
 
@@ -130,3 +133,4 @@ exports.getUserData = (req, res) => {
 //       res.status(200).json(data)
 //     })
 // }
+
