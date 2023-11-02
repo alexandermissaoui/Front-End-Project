@@ -1,19 +1,25 @@
 const Reservation = require('../Schemas/reservationSchema');
 
 
-  exports.createNewReservation = (req, res) => {
-    const { title, host, location, description, price, imageUrl, accommodation, checkin, checkout, } = req.body;
-  
-    if(!title || !host || !location || !description || !price || !imageUrl ||  !accommodation || !checkin || !checkout) {
+  exports.createNewReservation = async (req, res) => {
+    const { user, accommodation, checkin, checkout } = req.body;
+    console.log("REQ BODY", req.body)
+    if(!user || !accommodation || !checkin || !checkout) {
       res.status(400).json({
         message: 'You need to enter all the fields'
       })
       return
+    } 
+    try {
+      const newReservation = await Reservation.create({ user, accommodation, checkin, checkout })
+      await newReservation.populate("accommodation")
+      
+      res.status(201).json(newReservation)
     }
-  
-    Reservation.create({ title, host, location, description, price, imageUrl, accommodation, checkin, checkout })
-      .then(data => res.status(201).json(data))
-      .catch(() => res.status(500).json({ message: 'Someting went wrong when adding the reservation'}))
+    catch(error) {
+        console.log("Error in creation of reservation", error)
+        res.status(500).json({ message: 'Someting went wrong when adding the reservation'})
+    }
   }
 
 
@@ -29,6 +35,22 @@ exports.getReservations = (req, res) => {
         message: 'Could not get the reservations'
       })
     })
+}
+
+exports.getUserReservations = (req, res) => {
+  //TODO get all reservations based on user
+  Reservation.find({ user: req.params.user })
+  .populate('accommodation')
+  .then(reservations => {
+    res.status(200).json(reservations)
+  })
+  .catch(error => {
+    console.log("ERROR: getting user reservations", error)
+    res.status(500).json({
+      message: "Could not get user reservations"
+    })
+  })
+  
 }
 
 

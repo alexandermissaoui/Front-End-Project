@@ -1,51 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import axios from 'axios';
 import "bootstrap/dist/css/bootstrap.min.css";
-import Container from 'react-bootstrap/esm/Container';
-import './register.css'
+import './register.css';
 
+function RegisterPage() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+  });
 
-function TextControlsExample() {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Send a POST request to your Node.js backend endpoint
+      const response = await axios.post('http://localhost:3030/api/users/register', formData);
+
+      // Handle successful registration, for example, redirect to login page
+      console.log('Registration successful:', response.data);
+      if(response.data.token) {
+        localStorage.setItem("TOKEN", response.data.token)
+      }
+    } catch (error) {
+      // Handle registration error, for example, display an error message to the user
+      console.error('Registration failed:', error);
+    }
+  };
+
   return (
-
     <Container className='register'>
-
-    <Form className=''>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>First Name</Form.Label>
-        <Form.Control type="firstName" placeholder="Kalle" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Last Name</Form.Label>
-        <Form.Control type="lastName" placeholder="Karlssson" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Email</Form.Label>
-        <Form.Control type="email" placeholder="name@example.com" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password"  />
-        
-      </Form.Group>
-
-      <Button >Create User</Button>
-
+      <Form className='' onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="firstName">
+          <Form.Label>First Name</Form.Label>
+          <Form.Control type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="lastName">
+          <Form.Label>Last Name</Form.Label>
+          <Form.Control type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="email">
+          <Form.Label>Email</Form.Label>
+          <Form.Control type="email" name="email" value={formData.email} onChange={handleChange} />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="password">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" name="password" value={formData.password} onChange={handleChange} />
+        </Form.Group>
+        <Button type="submit">Create User</Button>
       </Form>
-
-         {/* 
-      <Button >Create User</Button>
-      <Link href="/Log In">Register</Link>
-    */}
-
-      </Container>
-
-   
-      
-   
-    
+    </Container>
   );
 }
 
-export default TextControlsExample;
+export default RegisterPage;

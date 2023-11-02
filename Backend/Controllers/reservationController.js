@@ -12,6 +12,8 @@ router.put('/:id', reservationModel.updateReservation);
 
 router.delete('/:id', reservationModel.deleteReservation);
 
+router.get('/user/:user')
+
 
 
 module.exports = router;

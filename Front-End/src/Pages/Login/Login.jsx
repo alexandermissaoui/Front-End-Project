@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './login.css';
 import Container from 'react-bootstrap/Container';
+import axios from 'axios';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -11,17 +12,19 @@ function LoginPage() {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://localhost:3030/api/users/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
-
-      if (response.ok) {
+      const response = await axios.post('http://localhost:3030/api/users/login', {
+        email,
+        password
+      })
+      console.log("Response", response.data)
+      if (response.status === 200) {
         // Login successful
         console.log('Login successful');
+        
+        if(response.data.token) {
+          localStorage.setItem("TOKEN", response.data.token)
+          //TODO: route to user page
+        }
       } else {
         // Login failed
         console.error('Login failed');
@@ -51,3 +54,12 @@ function LoginPage() {
 }
 
 export default LoginPage;
+
+
+//1. Login with credentials
+//2a. set token to localStorage
+//2b. set token to userContext
+//2c. Route user to /user
+//3. After token is set in userContext get user details
+//3b. Get user reservations
+//4. save details in context
