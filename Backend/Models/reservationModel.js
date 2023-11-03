@@ -38,8 +38,9 @@ exports.getReservations = (req, res) => {
 }
 
 exports.getUserReservations = (req, res) => {
+  const { _id, } = req.userData;
   //TODO get all reservations based on user
-  Reservation.find({ user: req.params.user })
+  Reservation.find({ user: _id })
   .populate('accommodation')
   .then(reservations => {
     res.status(200).json(reservations)

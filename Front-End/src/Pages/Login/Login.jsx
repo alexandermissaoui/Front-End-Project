@@ -5,8 +5,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './login.css';
 import Container from 'react-bootstrap/Container';
 import axios from 'axios';
+import { useUser } from '../../Context/UserContext';
+
+
 
 function LoginPage() {
+  const user = useUser()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -24,6 +28,7 @@ function LoginPage() {
         if(response.data.token) {
           localStorage.setItem("TOKEN", response.data.token)
           //TODO: route to user page
+          user.setToken(response.data.token)
         }
       } else {
         // Login failed

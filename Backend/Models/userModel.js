@@ -101,12 +101,12 @@ exports.getUserData = (req, res) => {
   GET /api/users
   hämtar alla användare
 */
-// exports.getAllUsers = (req, res) => {
-//   User.find()
-//     .then(data => {
-//       res.status(200).json(data)
-//     })
-// }
+exports.getAllUsers = (req, res) => {
+  User.find()
+    .then(data => {
+      res.status(200).json(data)
+    })
+}
 
 /*
   POST /api/users

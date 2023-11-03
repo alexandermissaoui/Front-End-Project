@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const reservationModel = require('../Models/reservationModel')
+const auth = require('../Authentication/auth')
 
 
 router.post('/', reservationModel.createNewReservation);
@@ -12,7 +13,7 @@ router.put('/:id', reservationModel.updateReservation);
 
 router.delete('/:id', reservationModel.deleteReservation);
 
-router.get('/user/:user')
+router.get('/user/me', auth.verifyToken, reservationModel.getUserReservations);
 
 
 

@@ -9,12 +9,14 @@ import Register from './Pages/Register/Register'
 import Detail from './Pages/Detail/Detail.jsx'
 import Reservations from './Pages/Reservations/Reservations'
 import AccommodationProvider from './Context/AccommodationContext'
+import UserProvider from './Context/UserContext'
 
 
 
 function App() {
   return (
     <BrowserRouter>
+    <UserProvider>
         <AccommodationProvider>
 
       <Navbar />
@@ -33,6 +35,7 @@ function App() {
       </div>
       <Footer />
       </AccommodationProvider>
+      </UserProvider>
 
     </BrowserRouter>
   )
