@@ -48,7 +48,8 @@ const UserProvider = ({ children }) => {
     // Simulated API call to fetch user and reservations data
    
     // Call the fetchUserData function to simulate API call
-    fetchUserData();
+   
+    if (userState.token){ fetchUserData();}
   }, [userState.token]); // Effect will re-run whenever the token changes
 
   const fetchUserData = async () => {
