@@ -33,43 +33,47 @@ function DetailPage() {
   };
 
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center vh-100 mt-4 mb-4">
-      <Card style={{ maxWidth: '600px' }}>
-        <Card.Img variant="top" src={detailAccommodation.imageUrl} />
-        <Card.Body>
-          <Card.Title>{detailAccommodation.title}</Card.Title>
-          <Card.Text>{detailAccommodation.description}</Card.Text>
-          <Card.Text>
-            Host: {detailAccommodation.host}<br />
-            Location: {detailAccommodation.location}<br />
-            Price/Night: ${detailAccommodation.price}
-          </Card.Text>
-          <div className="mb-3">
-            <label className="mr-3">Check-in:</label>
-            <DatePicker
-              selected={startDate}
-              onChange={handleStartDateChange}
-              selectsStart
-              startDate={startDate}
-              endDate={endDate}
-              className="form-control"
-            />
-          </div>
-          <div className="mb-3">
-            <label className="mr-3">Check-out:</label>
-            <DatePicker
-              selected={endDate}
-              onChange={handleEndDateChange}
-              selectsEnd
-              startDate={startDate}
-              endDate={endDate}
-              minDate={startDate}
-              className="form-control"
-            />
-          </div>
-          <Button className='button'>Reserve</Button>
-        </Card.Body>
-      </Card>
+    <div className="container my-4">
+      <div className="row justify-content-center">
+        <div className="col-lg-8 col-md-10 col-sm-12">
+          <Card>
+            <Card.Img variant="top" src={detailAccommodation.imageUrl} />
+            <Card.Body>
+              <Card.Title>{detailAccommodation.title}</Card.Title>
+              <Card.Text>{detailAccommodation.description}</Card.Text>
+              <Card.Text>
+                Host: {detailAccommodation.host}<br />
+                Location: {detailAccommodation.location}<br />
+                Price/Night: ${detailAccommodation.price}
+              </Card.Text>
+              <div className="mb-3">
+                <label className="mr-3">Check-in:</label>
+                <DatePicker
+                  selected={startDate}
+                  onChange={handleStartDateChange}
+                  selectsStart
+                  startDate={startDate}
+                  endDate={endDate}
+                  className="form-control"
+                />
+              </div>
+              <div className="mb-3">
+                <label className="mr-3">Check-out:</label>
+                <DatePicker
+                  selected={endDate}
+                  onChange={handleEndDateChange}
+                  selectsEnd
+                  startDate={startDate}
+                  endDate={endDate}
+                  minDate={startDate}
+                  className="form-control"
+                />
+              </div>
+              <Button className='btn btn-primary'>Reserve</Button>
+            </Card.Body>
+          </Card>
+        </div>
+      </div>
     </div>
   );
 }
