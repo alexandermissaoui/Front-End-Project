@@ -1,17 +1,18 @@
-import React, { useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import "bootstrap/dist/css/bootstrap.min.css";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAccommodations } from '../../Context/AccommodationContext';
 
 function DetailPage() {
   const params = useParams();
   const accommodations = useAccommodations();
-  const {
-    detailAccommodation,
-    getDetailAccommodation
-  } = accommodations;
+  const { detailAccommodation, getDetailAccommodation } = accommodations;
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
 
   useEffect(() => {
     if (params.id) {
@@ -23,9 +24,17 @@ function DetailPage() {
     return <div>Loading...</div>; // Handle loading state if accommodation data is not available yet
   }
 
+  const handleStartDateChange = (date) => {
+    setStartDate(date);
+  };
+
+  const handleEndDateChange = (date) => {
+    setEndDate(date);
+  };
+
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 mt-4 mb-4">
-      <Card style={{ maxWidth: '600px' }}> {/* Set maxWidth to 600px */}
+    <div className="d-flex flex-column justify-content-center align-items-center vh-100 mt-4 mb-4">
+      <Card style={{ maxWidth: '600px' }}>
         <Card.Img variant="top" src={detailAccommodation.imageUrl} />
         <Card.Body>
           <Card.Title>{detailAccommodation.title}</Card.Title>
@@ -35,6 +44,29 @@ function DetailPage() {
             Location: {detailAccommodation.location}<br />
             Price/Night: ${detailAccommodation.price}
           </Card.Text>
+          <div className="mb-3">
+            <label className="mr-3">Check-in:</label>
+            <DatePicker
+              selected={startDate}
+              onChange={handleStartDateChange}
+              selectsStart
+              startDate={startDate}
+              endDate={endDate}
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="mr-3">Check-out:</label>
+            <DatePicker
+              selected={endDate}
+              onChange={handleEndDateChange}
+              selectsEnd
+              startDate={startDate}
+              endDate={endDate}
+              minDate={startDate}
+              className="form-control"
+            />
+          </div>
           <Button className='button'>Reserve</Button>
         </Card.Body>
       </Card>
