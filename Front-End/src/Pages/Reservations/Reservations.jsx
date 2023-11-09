@@ -25,6 +25,11 @@ const Reservations = () => {
     }
   }, [userState.token]); // Empty dependency array ensures the effect runs once after the initial render
 
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
   return (
     <div className="d-flex flex-column align-items-center mt-4 mb-4">
       {reservations.map((reservation, index) => (
@@ -32,7 +37,7 @@ const Reservations = () => {
           <Card.Body>
             <Card.Title>{reservation.accommodation.title}</Card.Title>
             <Card.Text>
-              Period: {reservation.checkin} - {reservation.checkout}<br />
+              Period: {formatDate(reservation.checkin)} - {formatDate(reservation.checkout)}<br />
             </Card.Text>
           </Card.Body>
         </Card>
