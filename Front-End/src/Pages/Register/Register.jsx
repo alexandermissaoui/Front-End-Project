@@ -5,14 +5,17 @@ import Container from 'react-bootstrap/Container';
 import axios from 'axios';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './register.css';
+import { useNavigate } from 'react-router-dom';
 
 function RegisterPage() {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    email: '',
+    email: ``,
     password: ''
   });
+
+  const navigate = useNavigate ()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,7 +27,6 @@ function RegisterPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       // Send a POST request to your Node.js backend endpoint
       const response = await axios.post('http://localhost:3030/api/users/register', formData);
@@ -33,6 +35,8 @@ function RegisterPage() {
       console.log('Registration successful:', response.data);
       if(response.data.token) {
         localStorage.setItem("TOKEN", response.data.token)
+
+        navigate("/")
       }
     } catch (error) {
       // Handle registration error, for example, display an error message to the user
