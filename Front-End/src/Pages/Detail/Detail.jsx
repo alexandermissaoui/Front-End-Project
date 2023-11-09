@@ -6,8 +6,10 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAccommodations } from '../../Context/AccommodationContext';
+import { useUser } from '../../Context/UserContext';
 
 function DetailPage() {
+  const userState = useUser()
   const params = useParams();
   const accommodations = useAccommodations();
   const { detailAccommodation, getDetailAccommodation } = accommodations;
@@ -30,6 +32,44 @@ function DetailPage() {
 
   const handleEndDateChange = (date) => {
     setEndDate(date);
+  };
+
+  const handleReservation = async () => {
+    if (startDate && endDate) {
+      console.log("accommadtion", detailAccommodation)
+      const reservationData = {
+        accommodation: detailAccommodation._id,
+        checkin: startDate,
+        checkout: endDate,
+      };
+
+      try {
+        const response = await fetch('http://localhost:3030/api/reservations', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            // Add authorization header with user token if needed
+            Authorization: `Bearer ${userState.token}`
+          },
+          body: JSON.stringify(reservationData),
+        });
+
+        if (response.ok) {
+          // Handle successful reservation, e.g., show a success message to the user
+          console.log('Reservation successful!');
+        } else {
+          // Handle failed reservation, e.g., show an error message to the user
+          console.error('Reservation failed');
+          console.log(response);
+        }
+      } catch (error) {
+        // Handle network error, e.g., show a generic error message to the user
+        console.error('Error:', error);
+      }
+    } else {
+      // Handle invalid reservation dates, e.g., show an error message to the user
+      console.error('Invalid reservation dates');
+    }
   };
 
   return (
@@ -69,7 +109,9 @@ function DetailPage() {
                   className="form-control"
                 />
               </div>
-              <Button className='btn btn-primary'>Reserve</Button>
+              <Button className='btn btn-primary' onClick={handleReservation}>
+                Reserve
+              </Button>
             </Card.Body>
           </Card>
         </div>

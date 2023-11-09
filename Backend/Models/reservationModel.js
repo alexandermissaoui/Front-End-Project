@@ -2,8 +2,9 @@ const Reservation = require('../Schemas/reservationSchema');
 
 
   exports.createNewReservation = async (req, res) => {
-    const { user, accommodation, checkin, checkout } = req.body;
-    console.log("REQ BODY", req.body)
+    const { accommodation, checkin, checkout } = req.body;
+    const { _id: user } = req.userData
+    console.log("REQ BODY", req.body,)
     if(!user || !accommodation || !checkin || !checkout) {
       res.status(400).json({
         message: 'You need to enter all the fields'

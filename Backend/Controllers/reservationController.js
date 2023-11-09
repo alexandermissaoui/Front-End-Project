@@ -3,7 +3,7 @@ const reservationModel = require('../Models/reservationModel')
 const auth = require('../Authentication/auth')
 
 
-router.post('/', reservationModel.createNewReservation);
+router.post('/', auth.verifyToken, reservationModel.createNewReservation);
 
 router.get('/', reservationModel.getReservations);
 
