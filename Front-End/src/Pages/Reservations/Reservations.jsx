@@ -30,6 +30,14 @@ const Reservations = () => {
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
+  const calculateTotalPrice = (checkin, checkout, pricePerNight) => {
+    const startDate = new Date(checkin);
+    const endDate = new Date(checkout);
+    const numberOfNights = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+    const totalPrice = numberOfNights * pricePerNight;
+    return totalPrice;
+  };
+
   return (
     <div className="d-flex flex-column align-items-center mt-4 mb-4">
       {reservations.map((reservation, index) => (
@@ -38,6 +46,8 @@ const Reservations = () => {
             <Card.Title>{reservation.accommodation.title}</Card.Title>
             <Card.Text>
               Period: {formatDate(reservation.checkin)} - {formatDate(reservation.checkout)}<br />
+              Price/Night: ${reservation.accommodation.price}<br />
+              Total Price: ${calculateTotalPrice(reservation.checkin, reservation.checkout, reservation.accommodation.price)}
             </Card.Text>
           </Card.Body>
         </Card>
