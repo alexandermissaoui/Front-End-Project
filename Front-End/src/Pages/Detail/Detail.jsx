@@ -64,6 +64,8 @@ function DetailPage() {
         if (response.ok) {
           // Handle successful reservation, e.g., show a success message to the user
           console.log('Reservation successful!');
+
+          navigate("/reservations")
         } else {
           // Handle failed reservation, e.g., show an error message to the user
           console.error('Reservation failed');
