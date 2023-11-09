@@ -6,13 +6,15 @@ import './login.css';
 import Container from 'react-bootstrap/Container';
 import axios from 'axios';
 import { useUser } from '../../Context/UserContext';
-
+import { useNavigate } from 'react-router-dom';
 
 
 function LoginPage() {
   const user = useUser()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate ()
 
   const handleLogin = async () => {
     try {
@@ -28,6 +30,7 @@ function LoginPage() {
         if(response.data.token) {
           localStorage.setItem("TOKEN", response.data.token)
           //TODO: route to user page
+          navigate("/")
           user.setToken(response.data.token)
         }
       } else {
