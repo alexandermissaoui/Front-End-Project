@@ -46,7 +46,7 @@ function ListExample() {
           <MDBCol md='3' lg='2' xl='2' className='mx-auto mb-4'>
             <h6 className='text-uppercase fw-bold mb-4'>Get Started</h6>
             <p>
-              <a href='/Home' className='text-reset'>
+              <a href='/' className='text-reset'>
                 Our Accommodations
               </a>
             </p>          
