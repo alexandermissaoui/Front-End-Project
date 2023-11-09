@@ -3,6 +3,7 @@ const Accommodation = require('../Schemas/accommodationSchema');
 
   exports.createNewAccommodation = (req, res) => {
     const { title, host, location, description, price, imageUrl } = req.body;
+    const images = req.body.images || []
   
     if(!title || !host || !location || !description || !price || !imageUrl) {
       res.status(400).json({
@@ -11,7 +12,7 @@ const Accommodation = require('../Schemas/accommodationSchema');
       return
     }
   
-    Accommodation.create({ title, host, location, description, price, imageUrl })
+    Accommodation.create({ title, host, location, description, price, imageUrl, images })
       .then(data => res.status(201).json(data))
       .catch(() => res.status(500).json({ message: 'Someting went wrong when adding the accommodation'}))
   }
