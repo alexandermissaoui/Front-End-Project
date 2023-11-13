@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import { useUser } from '../../Context/UserContext';
 
 const Reservations = () => {
   const [reservations, setReservations] = useState([]);
+  const [activeModal, setActiveModal] = useState(null);
   const userState = useUser();
 
   useEffect(() => {
@@ -38,6 +41,84 @@ const Reservations = () => {
     return totalPrice;
   };
 
+ 
+  const handleContinueClick = () => {
+    setActiveModal('payment');
+  };
+
+  const handlePay = () => {
+    // Implement logic for payment
+    // You can call an API to process the payment
+    // Once payment is successful, you can open the confirmation modal
+    setActiveModal('confirmation');
+  };
+
+  const handleCloseModal = () => {
+    setActiveModal(null);
+  };
+
+  const renderModalContent = () => {
+    switch (activeModal) {
+      case 'payment':
+        return (
+          <>
+            <Modal.Header closeButton>
+              <Modal.Title>Payment Options</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+            {/* Add your payment options here */}
+            <p>Choose a payment option:</p>
+            <div>
+              <label>
+                <input type="radio" name="paymentOption" value="swish" />
+                Swish
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="radio" name="paymentOption" value="paypal" />
+                PayPal
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="radio" name="paymentOption" value="mastercard" />
+                Mastercard
+              </label>
+            </div>
+          </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleCloseModal}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={handlePay}>
+                Pay
+              </Button>
+            </Modal.Footer>
+          </>
+        );
+      case 'confirmation':
+        return (
+          <>
+            <Modal.Header closeButton>
+              <Modal.Title>PAYMENT SUCCESFULL!</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              {/* Add your confirmation content here */}
+              <p>Your reservation is now payed. <br />Thank you for choosing our services! <br />//DevBnb  </p>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleCloseModal}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="d-flex flex-column align-items-center mt-4 mb-4">
       {reservations.map((reservation, index) => (
@@ -49,9 +130,21 @@ const Reservations = () => {
               Price/Night: ${reservation.accommodation.price}<br />
               Total Price: ${calculateTotalPrice(reservation.checkin, reservation.checkout, reservation.accommodation.price)}
             </Card.Text>
+            <div className="d-flex justify-content-end">
+              <Button variant="primary" style={{ marginRight: '5px' }}>
+                Remove
+              </Button>
+              <Button variant="secondary" style={{ marginLeft: '5px' }} onClick={handleContinueClick}>
+                Continue
+              </Button>
+            </div>
           </Card.Body>
         </Card>
       ))}
+
+      <Modal show={activeModal !== null} onHide={handleCloseModal}>
+        {renderModalContent()}
+      </Modal>
     </div>
   );
 };
