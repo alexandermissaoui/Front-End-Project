@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useUser } from '../../Context/UserContext';
+import './reservation.css'
 
 const Reservations = () => {
   const [reservations, setReservations] = useState([]);
@@ -131,12 +132,10 @@ const Reservations = () => {
               Total Price: ${calculateTotalPrice(reservation.checkin, reservation.checkout, reservation.accommodation.price)}
             </Card.Text>
             <div className="d-flex justify-content-end">
-              <Button variant="primary" style={{ marginRight: '5px' }}>
-                Remove
-              </Button>
-              <Button variant="secondary" style={{ marginLeft: '5px' }} onClick={handleContinueClick}>
-                Continue
-              </Button>
+            <Button variant="primary" className="red-button" style={{ marginRight: '5px' }}>Remove</Button>
+
+            <Button variant="secondary" className="green-button" style={{ marginLeft: '5px' }} onClick={handleContinueClick}>Continue</Button>
+
             </div>
           </Card.Body>
         </Card>

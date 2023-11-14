@@ -2,7 +2,7 @@
     font-family: 'Roboto Mono';
     font-size: 20px;
     font-weight: bold;
-    color: black;
+    color: #fff;
     width: 500px;
     margin: 0 auto;
     text-align: center;
@@ -27,7 +27,7 @@
     font-family: 'Roboto Mono';
     font-size: 18px;
     font-weight: bold;
-    color: black;
+    color: #fff;
     line-height: 20px;
     margin-bottom: 50px;
 }

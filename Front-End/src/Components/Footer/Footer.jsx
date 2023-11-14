@@ -1,29 +1,23 @@
 import React from 'react';
-import "bootstrap/dist/css/bootstrap.min.css";
-import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
+import './footer.css';
 
-function ListExample() {
+function FooterComponent() {
   return (
-    <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
-    <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
-      
-    </section>
+    <footer className='footer'>
+      <section className='footer-top'>
+        {/* Your content for the top section */}
+      </section>
 
-    <section className=''>
-      <MDBContainer className='text-center text-md-start mt-5'>
-        <MDBRow className='mt-3'>
-          <MDBCol md='3' lg='4' xl='3' className='mx-auto mb-4'>
-            <h6 className='text-uppercase fw-bold mb-4'>
-              <MDBIcon color='secondary' icon='gem' className='me-3' />
-              DEVBNB
+      <section className='footer-main'>
+        <div className='footer-container'>
+          <div className='footer-column'>
+            <h6 className='footer-title'>
+              Accommodations designed for developers. 
             </h6>
-            <p>
-              Accommodations designed for developers.
-            </p>
-          </MDBCol>
+          </div>
 
-          <MDBCol md='2' lg='2' xl='2' className='mx-auto mb-4'>
-            <h6 className='text-uppercase fw-bold mb-4'>Join Us</h6>
+          <div className='footer-column'>
+            <h6 className='footer-title'>Join Us</h6>
             <p>
               <a href='/Login' className='text-reset'>
                 Sign Up
@@ -33,23 +27,21 @@ function ListExample() {
               <a href='/Register' className='text-reset'>
                 Register
               </a>
-            </p>         
+            </p>
             <p>
               <a href='/About' className='text-reset'>
                 About Us
               </a>
             </p>
-      
-        
-          </MDBCol>
+          </div>
 
-          <MDBCol md='3' lg='2' xl='2' className='mx-auto mb-4'>
-            <h6 className='text-uppercase fw-bold mb-4'>Get Started</h6>
+          <div className='footer-column'>
+            <h6 className='footer-title'>Get Started</h6>
             <p>
               <a href='/' className='text-reset'>
                 Our Accommodations
               </a>
-            </p>          
+            </p>
             <p>
               <a href='/Reservations' className='text-reset'>
                 My Reservations
@@ -60,35 +52,30 @@ function ListExample() {
                 Support
               </a>
             </p>
-     
-          </MDBCol>
+          </div>
 
-          <MDBCol md='4' lg='3' xl='3' className='mx-auto mb-md-0 mb-4'>
-            <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
+          <div className='footer-column'>
+            <h6 className='footer-title'>Contact</h6>
             <p>
-              <MDBIcon color='secondary' icon='home' className='me-2' />
-              New York, NY 10012, US
+              <span className='icon'>New York, NY 10012, US</span>
             </p>
             <p>
-              <MDBIcon color='secondary' icon='envelope' className='me-3' />
-              info@devbnb.com
+              <span className='icon'>info@devbnb.com</span>
             </p>
             <p>
-              <MDBIcon color='secondary' icon='phone' className='me-3' /> + 01 234 567 88
+              <span className='icon'>+ 01 234 567 88</span>
             </p>
-         
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
-    </section>
+          </div>
+        </div>
+      </section>
 
-    <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-      © 2023 Copyright
-     
-    </div>
-  </MDBFooter>
-
+      <section className='footer-bottom'>
+        <div className='text-center'>
+          © 2023 Copyright
+        </div>
+      </section>
+    </footer>
   );
 }
 
-export default ListExample;
+export default FooterComponent;
