@@ -85,44 +85,59 @@ function DetailPage() {
     <div className="container my-4">
     <div className="row justify-content-center">
       <div className="col-lg-8 col-md-10 col-sm-12">
-        <Card>
-          <Card.Img variant="top" src={detailAccommodation.imageUrl} />
-          <Card.Body>
-            <Card.Title>{detailAccommodation.title}</Card.Title>
-            <Card.Text>{detailAccommodation.description}</Card.Text>
-            <Card.Text>
-              Host: {detailAccommodation.host}<br />
-              Location: {detailAccommodation.location}<br />
-              Price/Night: ${detailAccommodation.price}
-            </Card.Text>
-            <div className="mb-3">
-              <label className="mr-3">Check-in:</label>
-              <DatePicker
-                selected={startDate}
-                onChange={handleStartDateChange}
-                selectsStart
-                startDate={startDate}
-                endDate={endDate}
-                className="form-control"
-              />
-            </div>
-            <div className="mb-3">
-              <label className="mr-3">Check-out:</label>
-              <DatePicker
-                selected={endDate}
-                onChange={handleEndDateChange}
-                selectsEnd
-                startDate={startDate}
-                endDate={endDate}
-                minDate={startDate}
-                className="form-control"
-              />
-            </div>
-            <Button className='btn btn-primary' onClick={handleReservation}>
-              Reserve
-            </Button>
-          </Card.Body>
-        </Card>
+
+      <Card.Img
+  className=''
+  variant="top"
+  src={detailAccommodation.imageUrl}
+  style={{ width: '50%', alignSelf: 'flex-start', marginBottom: '10px', borderRadius: '5%' }}
+/>
+
+
+
+  <Card style={{ 
+  borderRadius: '16px',
+  background: 'var(--background-black-50, rgba(0, 0, 0, 0.50))',
+  color: '#fff'
+}}>
+  
+  <Card.Body>
+    <Card.Title>{detailAccommodation.title}</Card.Title>
+    <Card.Text>{detailAccommodation.description}</Card.Text>
+    <Card.Text>
+      Host: {detailAccommodation.host}<br />
+      Location: {detailAccommodation.location}<br />
+      Price/Night: ${detailAccommodation.price}
+    </Card.Text>
+    <div className="mb-3">
+      <label className="mr-3">Check-in:</label>
+      <DatePicker
+        selected={startDate}
+        onChange={handleStartDateChange}
+        selectsStart
+        startDate={startDate}
+        endDate={endDate}
+        className="form-control"
+      />
+    </div>
+    <div className="mb-3">
+      <label className="mr-3">Check-out:</label>
+      <DatePicker
+        selected={endDate}
+        onChange={handleEndDateChange}
+        selectsEnd
+        startDate={startDate}
+        endDate={endDate}
+        minDate={startDate}
+        className="form-control"
+      />
+    </div>
+    <Button className='btn btn-primary' onClick={handleReservation}>
+      Reserve
+    </Button>
+  </Card.Body>
+</Card>
+
       </div>
     </div>
   </div>
