@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useAccommodations } from '../../Context/AccommodationContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWifi } from '@fortawesome/free-solid-svg-icons';
+import './home.css';
 
 function BasicExample() {
   const { accommodations } = useAccommodations();
@@ -23,6 +26,9 @@ function BasicExample() {
                 <Card.Body>
                   <Card.Title>{accommodation.title}</Card.Title>
                   <span>${accommodation.price}/night</span>
+                  <div className='wifi-icon-container'>
+                    <FontAwesomeIcon icon={faWifi} className='wifi-icon' />
+                  </div>
                 </Card.Body>
               </Card>
             </Link>
