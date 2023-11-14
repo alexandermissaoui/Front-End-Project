@@ -123,22 +123,24 @@ const Reservations = () => {
   return (
     <div className="d-flex flex-column align-items-center mt-4 mb-4">
       {reservations.map((reservation, index) => (
-        <Card key={index} className="w-75 mb-3">
-          <Card.Body>
-            <Card.Title>{reservation.accommodation.title}</Card.Title>
-            <Card.Text>
-              Period: {formatDate(reservation.checkin)} - {formatDate(reservation.checkout)}<br />
-              Price/Night: ${reservation.accommodation.price}<br />
-              Total Price: ${calculateTotalPrice(reservation.checkin, reservation.checkout, reservation.accommodation.price)}
-            </Card.Text>
-            <div className="d-flex justify-content-end">
-            <Button variant="primary" className="red-button" style={{ marginRight: '5px' }}>Remove</Button>
-
-            <Button variant="secondary" className="green-button" style={{ marginLeft: '5px' }} onClick={handleContinueClick}>Continue</Button>
-
-            </div>
-          </Card.Body>
-        </Card>
+     <Card style={{ backgroundColor: 'var(--background-black-50, rgba(0, 0, 0, 0.50))', borderRadius: '16px', color: '#fff' }} key={index} className="w-75 mb-3">
+     <Card.Body>
+       <Card.Title>{reservation.accommodation.title}</Card.Title>
+       <Card.Text>
+         Period: {formatDate(reservation.checkin)} - {formatDate(reservation.checkout)}<br />
+         Price/Night: ${reservation.accommodation.price}<br />
+         Total Price: ${calculateTotalPrice(reservation.checkin, reservation.checkout, reservation.accommodation.price)}
+       </Card.Text>
+       <div className="d-flex justify-content-end">
+         <Button variant="primary" className="red-button" style={{ marginRight: '5px' }}>Remove</Button>
+   
+         <Button variant="secondary" className="green-button" style={{ marginLeft: '5px' }} onClick={handleContinueClick}>Continue</Button>
+   
+       </div>
+     </Card.Body>
+   </Card>
+   
+     
       ))}
 
       <Modal show={activeModal !== null} onHide={handleCloseModal}>

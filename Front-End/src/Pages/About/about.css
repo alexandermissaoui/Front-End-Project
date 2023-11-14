@@ -10,6 +10,7 @@
     margin-bottom: 30px;
 }
 
+
 .image {
     display: block;
     margin-left: auto;
@@ -25,11 +26,13 @@
     margin-right: auto;
     width: 75%;
     font-family: 'Roboto Mono';
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     color: #fff;
     line-height: 20px;
     margin-bottom: 50px;
+    border-radius: 16px;
+    background: var(--background-black-50, rgba(0, 0, 0, 0.50));
 }
 
 .cp1 {
