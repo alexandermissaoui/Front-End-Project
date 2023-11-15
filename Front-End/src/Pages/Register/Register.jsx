@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import axios from 'axios';
 import "bootstrap/dist/css/bootstrap.min.css";
-import './register.css';
+// import './register.css';
 import { useNavigate } from 'react-router-dom';
 
 function RegisterPage() {
@@ -45,8 +45,16 @@ function RegisterPage() {
   };
 
   return (
-    <Container className='register'>
-      <Form className='' onSubmit={handleSubmit}>
+    <Container className='register' style={{
+      background: 'rgb(0, 0, 0)',
+      background: 'linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(108,108,108,1) 50%, rgba(0,0,0,1) 100%)',
+      padding: '20px',
+      borderRadius: '8px',
+      maxWidth: '400px', // Set maximum width for responsiveness
+      color: '#fff',
+      margin: '20px auto'
+    }}>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="firstName">
           <Form.Label>First Name</Form.Label>
           <Form.Control type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
@@ -63,7 +71,13 @@ function RegisterPage() {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" name="password" value={formData.password} onChange={handleChange} />
         </Form.Group>
-        <Button type="submit">Create User</Button>
+        <div className="text-center">
+        <Button type="submit" style={{
+            background: 'rgb(0, 0, 0)',
+            background: 'linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,117,255,1) 50%, rgba(0,0,0,1) 100%)',
+            border: 'none'
+          }}>Create User</Button>
+        </div>
       </Form>
     </Container>
   );
