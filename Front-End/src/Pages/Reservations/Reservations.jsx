@@ -3,7 +3,6 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useUser } from '../../Context/UserContext';
-import './reservation.css'
 
 const Reservations = () => {
   const [reservations, setReservations] = useState([]);

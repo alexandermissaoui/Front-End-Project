@@ -86,12 +86,43 @@ function DetailPage() {
     <div className="row justify-content-center">
       <div className="col-lg-8 col-md-10 col-sm-12">
 
-      <Card.Img
-  className=''
-  variant="top"
-  src={detailAccommodation.imageUrl}
-  style={{ width: '50%', alignSelf: 'flex-start', marginBottom: '10px', borderRadius: '5%' }}
-/>
+  
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+  <Card.Img
+    className=''
+    variant="top"
+    src={detailAccommodation.imageUrl}
+    style={{ width: '50%', alignSelf: 'flex-start', marginBottom: '10px', borderRadius: '5%' }}
+  />
+  <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '5px' }}>
+    <Card.Img
+      className=''
+      variant="top"
+      src={detailAccommodation.imageUrl}
+      style={{ width: '100%', marginBottom: '5px', borderRadius: '5%' }}
+    />
+    <Card.Img
+      className=''
+      variant="top"
+      src={detailAccommodation.imageUrl}
+      style={{ width: '100%', marginBottom: '5px', borderRadius: '5%' }}
+    />
+  </div>
+  <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '5px' }}>
+    <Card.Img
+      className=''
+      variant="top"
+      src={detailAccommodation.imageUrl}
+      style={{ width: '100%', marginBottom: '5px', borderRadius: '5%' }}
+    />
+    <Card.Img
+      className=''
+      variant="top"
+      src={detailAccommodation.imageUrl}
+      style={{ width: '100%', marginBottom: '5px', borderRadius: '5%' }}
+    />
+  </div>
+</div>
 
 
 
@@ -109,32 +140,50 @@ function DetailPage() {
       Location: {detailAccommodation.location}<br />
       Price/Night: ${detailAccommodation.price}
     </Card.Text>
-    <div className="mb-3">
-      <label className="mr-3">Check-in:</label>
-      <DatePicker
-        selected={startDate}
-        onChange={handleStartDateChange}
-        selectsStart
-        startDate={startDate}
-        endDate={endDate}
-        className="form-control"
-      />
-    </div>
-    <div className="mb-3">
-      <label className="mr-3">Check-out:</label>
-      <DatePicker
-        selected={endDate}
-        onChange={handleEndDateChange}
-        selectsEnd
-        startDate={startDate}
-        endDate={endDate}
-        minDate={startDate}
-        className="form-control"
-      />
-    </div>
-    <Button className='btn btn-primary' onClick={handleReservation}>
-      Reserve
-    </Button>
+    <div className="mb-3" style={{ display: 'flex', flexDirection: 'column' }}>
+  <label className="mr-3">Check-in:</label>
+  <DatePicker
+    selected={startDate}
+    onChange={handleStartDateChange}
+    selectsStart
+    startDate={startDate}
+    endDate={endDate}
+    className="form-control"
+  />
+</div>
+
+<div className="mb-3" style={{ display: 'flex', flexDirection: 'column' }}>
+  <label className="mr-3">Check-out:</label>
+  <DatePicker
+    selected={endDate}
+    onChange={handleEndDateChange}
+    selectsEnd
+    startDate={startDate}
+    endDate={endDate}
+    minDate={startDate}
+    className="form-control"
+  />
+</div>
+
+    <div className="d-flex justify-content-center">
+  <Button
+    variant="secondary"
+    className="green-button"
+    style={{
+      borderRadius: '5px',
+      background: 'var(--linear-black-green-black, linear-gradient(180deg, #000 0%, #42FF00 52.08%, #000 100%)',
+      border: 'none',
+      padding: '5px', // Add padding as needed
+      width: '120px', // Set the width as needed
+    }}
+    onClick={handleReservation}
+  >
+    Reserve
+  </Button>
+</div>
+
+
+
   </Card.Body>
 </Card>
 
@@ -145,3 +194,5 @@ function DetailPage() {
 }
 
 export default DetailPage;
+
+
