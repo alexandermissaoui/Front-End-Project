@@ -132,11 +132,20 @@ const Reservations = () => {
          Total Price: ${calculateTotalPrice(reservation.checkin, reservation.checkout, reservation.accommodation.price)}
        </Card.Text>
        <div className="d-flex justify-content-end">
-         <Button variant="primary" className="red-button" style={{ marginRight: '5px' }}>Remove</Button>
-   
-         <Button variant="secondary" className="green-button" style={{ marginLeft: '5px' }} onClick={handleContinueClick}>Continue</Button>
-   
-       </div>
+      <Button variant="primary" className="red-button" style={{
+        marginRight: '5px',
+        borderRadius: '5px',
+        background: 'var(--linear-black-red-black, linear-gradient(180deg, #000 0%, #F00 52.08%, #000 100%)',
+        border: 'none'
+      }}>Remove</Button>
+
+      <Button variant="secondary" className="green-button" style={{
+        marginLeft: '5px',
+        borderRadius: '5px',
+        background: 'var(--linear-black-green-black, linear-gradient(180deg, #000 0%, #42FF00 52.08%, #000 100%)',
+        border: 'none'
+      }} onClick={handleContinueClick}>Continue</Button>
+    </div>
      </Card.Body>
    </Card>
    
