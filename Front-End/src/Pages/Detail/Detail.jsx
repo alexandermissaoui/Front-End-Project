@@ -185,10 +185,10 @@ function DetailPage() {
   />
 </div>
 
-    <div className="d-flex justify-content-center">
+<div className="d-flex justify-content-center">
   <Button
     variant="secondary"
-    className="green-button"
+    className="green-button mx-auto d-block"
     style={{
       borderRadius: '5px',
       background: 'var(--linear-black-green-black, linear-gradient(180deg, #000 0%, #42FF00 52.08%, #000 100%)',
@@ -201,6 +201,8 @@ function DetailPage() {
     Reserve
   </Button>
 </div>
+
+
 
 
 
