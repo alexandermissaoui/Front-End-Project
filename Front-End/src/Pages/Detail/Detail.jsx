@@ -7,6 +7,9 @@ import 'react-datepicker/dist/react-datepicker.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAccommodations } from '../../Context/AccommodationContext';
 import { useUser } from '../../Context/UserContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faDoorOpen, faMedal, faLocationDot, faBed, faWifi, faCar, faBagShopping, faUmbrellaBeach, faMugSaucer, faPizzaSlice, faBath } from '@fortawesome/free-solid-svg-icons';
+
 
 function DetailPage() {
   const userState = useUser();
@@ -97,7 +100,6 @@ function DetailPage() {
       src={detailAccommodation.imageUrl}
     />
 
-    {/* {detailRoom?.images?.map((image, index) => ())} */}
 
     <div className="d-flex flex-row gap-2 flex-wrap">
       {detailAccommodation?.images?.map(image => (
@@ -110,41 +112,7 @@ function DetailPage() {
           />
       ))}
       </div>
-    {/* small images */}
-    {/* <Card.Img
-      className=''
-      variant="top"
-      src={detailAccommodation.imageUrl}
-      style={{ width: '100%', marginBottom: '5px', borderRadius: '5%' }}
-    />
-
-    <Card.Img
-      className=''
-      variant="top"
-      src={detailAccommodation.imageUrl}
-      style={{ width: '100%', marginBottom: '5px', borderRadius: '5%' }}
-    />
-  </div>
-  <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '5px' }}>
-    <Card.Img
-      className=''
-      variant="top"
-      src={detailAccommodation.imageUrl}
-      style={{ width: '100%', marginBottom: '5px', borderRadius: '5%' }}
-    />
-    <Card.Img
-      className=''
-      variant="top"
-      src={detailAccommodation.imageUrl}
-      style={{ width: '100%', marginBottom: '5px', borderRadius: '5%' }}
-    />
-  </div> */}
 </div>
-
-
-
-
-
 
   <Card style={{ 
   borderRadius: '16px',
@@ -153,14 +121,33 @@ function DetailPage() {
 }}>
   
   <Card.Body>
-    <Card.Title>{detailAccommodation.title}</Card.Title>
-    <Card.Text>{detailAccommodation.description}</Card.Text>
+    <Card.Title>{detailAccommodation.title}</Card.Title> <p>2 Quests - 1 Bedroom - 1 Bed - 2 Bathrooms</p> <br />
     <Card.Text>
-      Host: {detailAccommodation.host}<br />
-      Location: {detailAccommodation.location}<br />
-      Price/Night: ${detailAccommodation.price}
-    </Card.Text>
-    <div className="mb-3" style={{ display: 'flex', flexDirection: 'column' }}>
+    <FontAwesomeIcon icon={faUser} style={{color: "#ffffff",}} /> {detailAccommodation.host}<br />
+    <FontAwesomeIcon icon={faDoorOpen} style={{color: "#ffffff",}} /> Self Checkin <br />
+    <FontAwesomeIcon icon={faMedal} style={{color: "#ffffff",}} /> Super Host <br />
+    <FontAwesomeIcon icon={faLocationDot} style={{color: "#ffffff",}} /> {detailAccommodation.location}<br />
+     
+    </Card.Text> <br />
+    <Card.Text>Description: <br />
+      {detailAccommodation.description}</Card.Text> <br />
+
+      <p>Where you'll sleep:</p>
+      <p>1 bedroom</p>
+      <p><FontAwesomeIcon icon={faBed} style={{color: "#ffffff",}} /> Queen bed</p> <br />
+
+      <p>What this place offers:</p>
+      <FontAwesomeIcon icon={faWifi} style={{color: "#ffffff",}} /> Wifi <br />
+      <FontAwesomeIcon icon={faBagShopping} style={{color: "#ffffff",}} /> Luggage drop-of allowed <br />
+      <FontAwesomeIcon icon={faCar} style={{color: "#ffffff",}} /> Free parking on permises <br />
+      <FontAwesomeIcon icon={faUmbrellaBeach} style={{color: "#ffffff",}} /> Beach access <br />
+      <FontAwesomeIcon icon={faMugSaucer} style={{color: "#ffffff",}} /> Coffe machine <br />
+      <FontAwesomeIcon icon={faPizzaSlice} style={{color: "#ffffff",}} /> Food delivery allowed <br />
+      <FontAwesomeIcon icon={faBath} style={{color: "#ffffff",}} /> Bathtub/Shower <br /> <br />
+
+ 
+  
+<div className="mb-3" style={{ display: 'flex', flexDirection: 'column' }}>
   <label className="mr-3">Check-in:</label>
   <DatePicker
     selected={startDate}
@@ -185,6 +172,8 @@ function DetailPage() {
   />
 </div>
 
+<p>${detailAccommodation.price}/night</p>
+
 <div className="d-flex justify-content-center">
   <Button
     variant="secondary"
@@ -201,10 +190,6 @@ function DetailPage() {
     Reserve
   </Button>
 </div>
-
-
-
-
 
   </Card.Body>
 </Card>
