@@ -81,26 +81,43 @@ function DetailPage() {
     }
   };
 
+  // console.log("Detail room", detailRoom)
   return (
     <div className="container my-4">
     <div className="row justify-content-center">
       <div className="col-lg-8 col-md-10 col-sm-12">
 
   
-      <div style={{ display: 'flex', flexDirection: 'row' }}>
-  <Card.Img
-    className=''
-    variant="top"
-    src={detailAccommodation.imageUrl}
-    style={{ width: '50%', alignSelf: 'flex-start', marginBottom: '10px', borderRadius: '5%' }}
-  />
-  <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '5px' }}>
+  <div className='d-flex flex-row flex-nowrap gap-2 mb-3'>
+    {/* big image */}
     <Card.Img
+          style={{width: "calc(50% - 8px)"}}
+          className='rounded-1'
+          variant="top"
+      src={detailAccommodation.imageUrl}
+    />
+
+    {/* {detailRoom?.images?.map((image, index) => ())} */}
+
+    <div className="d-flex flex-row gap-2 flex-wrap">
+      {detailAccommodation?.images?.map(image => (
+        <Card.Img
+          key={image}
+          className='rounded-1'
+          style={{width: "calc(50% - 4px)"}}
+          variant='top'
+          src={image}
+          />
+      ))}
+      </div>
+    {/* small images */}
+    {/* <Card.Img
       className=''
       variant="top"
       src={detailAccommodation.imageUrl}
       style={{ width: '100%', marginBottom: '5px', borderRadius: '5%' }}
     />
+
     <Card.Img
       className=''
       variant="top"
@@ -121,8 +138,11 @@ function DetailPage() {
       src={detailAccommodation.imageUrl}
       style={{ width: '100%', marginBottom: '5px', borderRadius: '5%' }}
     />
-  </div>
+  </div> */}
 </div>
+
+
+
 
 
 
