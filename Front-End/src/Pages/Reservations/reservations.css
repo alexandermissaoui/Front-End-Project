@@ -1,0 +1,6 @@
+@media (min-width: 600px) {
+    .d-flex {
+      justify-content: flex-end !important; /* Add !important to ensure it takes precedence */
+    }
+  }
+  
