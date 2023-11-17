@@ -121,40 +121,57 @@ const Reservations = () => {
   };
 
   return (
+
     <div className="d-flex flex-column align-items-center mt-4 mb-4">
       {reservations.map((reservation, index) => (
-     <Card style={{ backgroundColor: 'var(--background-black-50, rgba(0, 0, 0, 0.50))', borderRadius: '16px', color: '#fff' }} key={index} className="w-75 mb-3">
-     <Card.Body>
-       <Card.Title>{reservation.accommodation.title}</Card.Title>
-       <Card.Text>
-         Period: {formatDate(reservation.checkin)} - {formatDate(reservation.checkout)}<br />
-         Price/Night: ${reservation.accommodation.price}<br />
-         Total Price: ${calculateTotalPrice(reservation.checkin, reservation.checkout, reservation.accommodation.price)}
-       </Card.Text>
-       <div className="d-flex flex-wrap justify-content-center" style={{ padding: '10px' }}>
-  <Button variant="primary" className="red-button" style={{
-    marginRight: '5px',
-    marginBottom: '5px',
-    borderRadius: '5px',
-    background: 'var(--linear-black-red-black, linear-gradient(180deg, #000 0%, #F00 52.08%, #000 100%)',
-    border: 'none'
-  }}>Remove</Button>
+        <div className="d-flex align-items-center mb-3">
+  <div style={{ marginRight: '20px' }}>
+  <div className="d-flex align-items-start mb-3">
+  <div style={{ marginRight: '20px' }}>
+    <img
+      src={reservation.accommodation.imageUrl} // Replace with the actual URL of your image
+      alt="Accommodation"
+      style={{ width: '200px', height: '200px', objectFit: 'cover', borderRadius: '16px' }}
+    />
+  </div>
+  
 
-  <Button variant="secondary" className="green-button" style={{
-    marginLeft: '5px',
-    marginBottom: '5px',
-    borderRadius: '5px',
-    background: 'var(--linear-black-green-black, linear-gradient(180deg, #000 0%, #42FF00 52.08%, #000 100%)',
-    border: 'none'
-  }} onClick={handleContinueClick}>Continue</Button>
+     <Card  style={{ width: '500px', height: '200px', backgroundColor: 'var(--background-black-50, rgba(0, 0, 0, 0.50))', borderRadius: '16px', color: '#fff' }}>
+    <Card.Body>
+      <Card.Title>{reservation.accommodation.title}</Card.Title>
+      <Card.Text>
+        Period: {formatDate(reservation.checkin)} - {formatDate(reservation.checkout)}<br />
+        Price/Night: ${reservation.accommodation.price}<hr />
+        Total Price: ${calculateTotalPrice(reservation.checkin, reservation.checkout, reservation.accommodation.price)}
+      </Card.Text>
+    </Card.Body>
+    </Card>
+  
+</div>
+
+    
+    <div className="d-flex justify-content-center" style={{ marginTop: '10px' }}>
+      <Button variant="primary" className="red-button" style={{
+        marginRight: '5px',
+        marginBottom: '5px',
+        borderRadius: '5px',
+        background: 'var(--linear-black-red-black, linear-gradient(180deg, #000 0%, #F00 52.08%, #000 100%)',
+        border: 'none'
+      }}>Remove</Button>
+
+      <Button variant="secondary" className="green-button" style={{
+        marginLeft: '5px',
+        marginBottom: '5px',
+        borderRadius: '5px',
+        background: 'var(--linear-black-green-black, linear-gradient(180deg, #000 0%, #42FF00 52.08%, #000 100%)',
+        border: 'none'
+      }} onClick={handleContinueClick}>Continue</Button>
+    </div>
+  </div>
 </div>
 
 
-
-
-
-     </Card.Body>
-   </Card>
+  
    
      
       ))}

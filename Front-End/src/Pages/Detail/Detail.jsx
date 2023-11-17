@@ -121,20 +121,25 @@ function DetailPage() {
 }}>
   
   <Card.Body>
-    <Card.Title>{detailAccommodation.title}</Card.Title> <p>2 Quests - 1 Bedroom - 1 Bed - 2 Bathrooms</p> <br />
+    <Card.Title>{detailAccommodation.title}</Card.Title> <p>2 Quests - 1 Bedroom - 1 Bed - 2 Bathrooms</p> 
+    <hr />
     <Card.Text>
     <FontAwesomeIcon icon={faUser} style={{color: "#ffffff",}} /> {detailAccommodation.host}<br />
+    <hr />
     <FontAwesomeIcon icon={faDoorOpen} style={{color: "#ffffff",}} /> Self Checkin <br />
     <FontAwesomeIcon icon={faMedal} style={{color: "#ffffff",}} /> Super Host <br />
-    <FontAwesomeIcon icon={faLocationDot} style={{color: "#ffffff",}} /> {detailAccommodation.location}<br />
-     
-    </Card.Text> <br />
+    <FontAwesomeIcon icon={faLocationDot} style={{color: "#ffffff",}} /> {detailAccommodation.location}
+    <hr />
+    </Card.Text> 
     <Card.Text>Description: <br />
-      {detailAccommodation.description}</Card.Text> <br />
+      {detailAccommodation.description}</Card.Text>
+
+      <hr />
 
       <p>Where you'll sleep:</p>
       <p>1 bedroom</p>
-      <p><FontAwesomeIcon icon={faBed} style={{color: "#ffffff",}} /> Queen bed</p> <br />
+      <p><FontAwesomeIcon icon={faBed} style={{color: "#ffffff",}} /> Queen bed</p>
+      <hr />
 
       <p>What this place offers:</p>
       <FontAwesomeIcon icon={faWifi} style={{color: "#ffffff",}} /> Wifi <br />
@@ -143,7 +148,8 @@ function DetailPage() {
       <FontAwesomeIcon icon={faUmbrellaBeach} style={{color: "#ffffff",}} /> Beach access <br />
       <FontAwesomeIcon icon={faMugSaucer} style={{color: "#ffffff",}} /> Coffe machine <br />
       <FontAwesomeIcon icon={faPizzaSlice} style={{color: "#ffffff",}} /> Food delivery allowed <br />
-      <FontAwesomeIcon icon={faBath} style={{color: "#ffffff",}} /> Bathtub/Shower <br /> <br />
+      <FontAwesomeIcon icon={faBath} style={{color: "#ffffff",}} /> Bathtub/Shower <br /> 
+      <hr />
 
  
   
