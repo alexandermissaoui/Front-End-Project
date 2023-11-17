@@ -126,17 +126,25 @@ const Reservations = () => {
       {reservations.map((reservation, index) => (
         <div className="d-flex align-items-center mb-3">
   <div style={{ marginRight: '20px' }}>
-  <div className="d-flex align-items-start mb-3">
-  <div style={{ marginRight: '20px' }}>
-    <img
+
+
+  <div className="d-flex align-items-start mb-3 flex-column flex-md-row">
+  <div style={{ marginRight: '20px', height: '200px' }}>
+  
+  <img
+      className='d-md-block d-none h-100'
       src={reservation.accommodation.imageUrl} // Replace with the actual URL of your image
       alt="Accommodation"
       style={{ width: '200px', height: '200px', objectFit: 'cover', borderRadius: '16px' }}
     />
+      <img
+      src={reservation.accommodation.imageUrl} // Replace with the actual URL of your image
+      alt="Accommodation"
+      className='d-md-none d-block h-100'    />
   </div>
   
 
-     <Card  style={{ width: '500px', height: '200px', backgroundColor: 'var(--background-black-50, rgba(0, 0, 0, 0.50))', borderRadius: '16px', color: '#fff' }}>
+     <Card  style={{ minWidth: '350px'  ,height: '200px', backgroundColor: 'var(--background-black-50, rgba(0, 0, 0, 0.50))', borderRadius: '16px', color: '#fff' }}>
     <Card.Body>
       <Card.Title>{reservation.accommodation.title}</Card.Title>
       <Card.Text>
