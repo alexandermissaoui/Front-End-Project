@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import './support.css';
 import Container from 'react-bootstrap/Container';
 
-function TextControlsExample() {
+function SupportPage() {
   return (
 
     <Container className='support mx-auto' style={{ 
@@ -36,4 +36,4 @@ function TextControlsExample() {
   );
 }
 
-export default TextControlsExample;
+export default SupportPage;
