@@ -45,6 +45,9 @@ function RegisterPage() {
   };
 
   return (
+    <div>
+
+      <h1 className='h1'>REGISTER</h1>
     <Container className='register' style={{
       background: 'rgb(0, 0, 0)',
       background: 'linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(108,108,108,1) 50%, rgba(0,0,0,1) 100%)',
@@ -80,6 +83,7 @@ function RegisterPage() {
         </div>
       </Form>
     </Container>
+    </div>
   );
 }
 

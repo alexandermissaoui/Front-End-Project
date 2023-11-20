@@ -43,6 +43,9 @@ function LoginPage() {
   };
 
   return (
+
+    <div>
+      <h1 className='h1'>LOGIN</h1>
     <Container className='login' style={{
       background: 'rgb(0, 0, 0)',
       background: 'linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(108,108,108,1) 50%, rgba(0,0,0,1) 100%)',
@@ -69,6 +72,7 @@ function LoginPage() {
         }}>Log In</Button>
       </Form>
     </Container>
+    </div>
   );
 }
 

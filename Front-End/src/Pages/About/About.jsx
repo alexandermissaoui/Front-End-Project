@@ -5,7 +5,7 @@ import './about.css';
 const About = () => {
   return (
     <div className="about-container">
-      <h1 className='h1 about'>ABOUT US</h1>
+      <h1 className='h1'>ABOUT US</h1>
       <div className='image-container'>
         <img
           className='image'

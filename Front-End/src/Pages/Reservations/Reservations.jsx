@@ -48,9 +48,7 @@ const Reservations = () => {
   };
 
   const handlePay = () => {
-    // Implement logic for payment
-    // You can call an API to process the payment
-    // Once payment is successful, you can open the confirmation modal
+  
     setActiveModal('confirmation');
   };
 
@@ -62,41 +60,48 @@ const Reservations = () => {
     switch (activeModal) {
       case 'payment':
         return (
-          <>
-            <Modal.Header closeButton>
-              <Modal.Title>Payment Options</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-            {/* Add your payment options here */}
-            <p>Choose a payment option:</p>
-            <div>
-              <label>
-                <input type="radio" name="paymentOption" value="swish" />
-                Swish
+     
+          <div className="div-pay">
+          <Modal.Body>
+          <Modal.Title className='title-pay'>Payment method</Modal.Title>
+            {}
+            <div className='pay-logo'>
+              <div>
+                <label>
+                <input type="radio" name="paymentOption" value="mastercard" />
+                <img className='mastercard' src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mastercard_2019_logo.svg/2560px-Mastercard_2019_logo.svg.png" alt="Mastercard Logo" />
               </label>
             </div>
             <div>
               <label>
                 <input type="radio" name="paymentOption" value="paypal" />
-                PayPal
+                <img className='paypal' src="https://seeklogo.com/images/P/paypal-logo-481A2E654B-seeklogo.com.png" alt="Paypal Logo" />
               </label>
             </div>
             <div>
-              <label>
-                <input type="radio" name="paymentOption" value="mastercard" />
-                Mastercard
+               <label>
+                <input type="radio" name="paymentOption" value="swish" />
+                <img className='swish' src="https://images.ctfassets.net/zrqoyh8r449h/5Kbx9XCa4oJjwgUP0RNDZY/176707fc098ba9c33a4cef9b039236f6/Swish_Logo_Primary_Light-BG_P3.png?w=600" alt="Swish Logo" />
               </label>
             </div>
+            </div>
+            <Button className='pay' variant="primary" onClick={handlePay}>
+              Pay
+            </Button>
           </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseModal}>
-                Close
-              </Button>
-              <Button variant="primary" onClick={handlePay}>
-                Pay
-              </Button>
-            </Modal.Footer>
-          </>
+        </div>
+        );
+      case 'confirmation':
+
+        return (
+      <>
+        <div className="finish-pay">
+          <Modal.Body className='thank-you'>
+            {}
+            <p className='p'>Thank you for your purchase</p>
+          </Modal.Body>
+        </div>
+      </>
         );
       case 'confirmation':
         return (
@@ -121,6 +126,10 @@ const Reservations = () => {
   };
 
   return (
+
+    <div>
+
+      <h1 className='h1'>MY RESERVATIONS</h1>
 
     <div className="d-flex flex-column align-items-center mt-4 mb-4">
       {reservations.map((reservation, index) => (
@@ -185,6 +194,8 @@ const Reservations = () => {
 </div>
 
 
+
+
   
    
      
@@ -193,6 +204,7 @@ const Reservations = () => {
       <Modal show={activeModal !== null} onHide={handleCloseModal}>
         {renderModalContent()}
       </Modal>
+    </div>
     </div>
   );
 };

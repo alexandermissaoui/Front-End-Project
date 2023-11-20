@@ -86,6 +86,10 @@ function DetailPage() {
 
   // console.log("Detail room", detailRoom)
   return (
+
+    <div>
+
+    <h1 className='h1'>DETAILS</h1>
     <div className="container my-4">
     <div className="row justify-content-center">
       <div className="col-lg-8 col-md-10 col-sm-12">
@@ -202,6 +206,8 @@ function DetailPage() {
 
       </div>
     </div>
+  </div>
+
   </div>
   );
 }
