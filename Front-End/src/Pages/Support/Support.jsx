@@ -14,9 +14,9 @@ function SupportPage() {
       background: 'linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(108,108,108,1) 50%, rgba(0,0,0,1) 100%)',
       padding: '20px',
       borderRadius: '8px',
-      maxWidth: '400px', // Set maximum width for responsiveness
-      color: '#fff', // Set text color to white
-      margin: '20px 0' // Add margin top and bottom
+      maxWidth: '400px', 
+      color: '#fff', 
+      margin: '20px 0' 
     }}>
       <Form className="d-flex flex-column align-items-center">
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">

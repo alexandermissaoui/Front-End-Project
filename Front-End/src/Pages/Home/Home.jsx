@@ -17,7 +17,7 @@ function BasicExample() {
 
   return (
  
-    <div className="my-4"> {/* Add margin top and bottom here */}
+    <div className="my-4"> 
        <h1 className='h1'>HOME</h1>
       <Row xs={1} md={2} lg={3} className="g-4">
         {accommodations.map(accommodation => (

@@ -4,13 +4,11 @@
     }
   }
 
-/* Bakgrundsfärg */
   .div-pay {
     background: rgb(0,0,0);
     background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(108,108,108,1) 50%, rgba(0,0,0,1) 100%);
 }
 
-/* Gemensamma stilar för betalningsalternativ */
 .pay {
   background: rgb(0,0,0);
   background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,117,255,1) 50%, rgba(0,0,0,1) 100%);
@@ -27,7 +25,6 @@
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
 }
 
-/* Rubrik för betalning */
 .title-pay {
   font-size: 20px;
   color: rgb(255, 255, 255);
@@ -38,7 +35,6 @@
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
 }
 
-/* Logotyper för betalning */
 .pay-logo {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -55,14 +51,12 @@
   max-width: 100%; 
 }
 
-/* Anpassade stilar för betalningsalternativ (t.ex., Swish, PayPal, Mastercard) */
 .swish, .paypal, .mastercard {
   width: 50px;
   height: auto; 
   margin: 10px;
 }
 
-/* Anpassade stilar för markerat betalningsalternativ */
 .pay-logo input[type="radio"]:checked {
   background-color: black;
   border-color: black;

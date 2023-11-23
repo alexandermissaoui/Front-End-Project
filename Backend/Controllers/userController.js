@@ -12,9 +12,7 @@ router.get('/me', auth.verifyToken, userModel.getUserData);
 
 router.get('/', userModel.getAllUsers);
 
-// router.get('/:id', userModel.getUserById);
 
-// router.post('/', userModel.createNewUser);
 
 
 

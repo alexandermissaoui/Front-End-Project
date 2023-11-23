@@ -5,7 +5,6 @@ function FooterComponent() {
   return (
     <footer className='footer'>
       <section className='footer-top'>
-        {/* Your content for the top section */}
       </section>
 
       <section className='footer-main'>
