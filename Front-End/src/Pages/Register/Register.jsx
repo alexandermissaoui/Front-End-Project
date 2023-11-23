@@ -6,8 +6,10 @@ import axios from 'axios';
 import "bootstrap/dist/css/bootstrap.min.css";
 // import './register.css';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../Context/UserContext'; //new
 
 function RegisterPage() {
+  const user = useUser() //new
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -35,6 +37,8 @@ function RegisterPage() {
       console.log('Registration successful:', response.data);
       if(response.data.token) {
         localStorage.setItem("TOKEN", response.data.token)
+
+        user.setToken("TOKEN", response.data.token) //new
 
         navigate("/")
       }
