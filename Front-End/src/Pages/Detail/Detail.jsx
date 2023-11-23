@@ -95,28 +95,29 @@ function DetailPage() {
       <div className="col-lg-8 col-md-10 col-sm-12">
 
   
-  <div className='d-flex flex-row flex-nowrap gap-2 mb-3'>
+      <div className='d-flex flex-row flex-nowrap gap-2 mb-3'>
     {/* big image */}
     <Card.Img
-          style={{width: "calc(50% - 8px)"}}
-          className='rounded-1'
-          variant="top"
+      style={{ width: 'calc(50% - 8px)', height: '210px', objectFit: 'cover' }}
+      className='rounded-1'
+      variant="top"
       src={detailAccommodation.imageUrl}
+      alt={detailAccommodation.title}
     />
-
 
     <div className="d-flex flex-row gap-2 flex-wrap">
       {detailAccommodation?.images?.map(image => (
         <Card.Img
           key={image}
           className='rounded-1'
-          style={{width: "calc(50% - 4px)"}}
+          style={{ width: 'calc(50% - 4px)', height: '100px', objectFit: 'cover' }}
           variant='top'
           src={image}
-          />
+          alt={detailAccommodation.title}
+        />
       ))}
-      </div>
-</div>
+    </div>
+  </div>
 
   <Card style={{ 
   borderRadius: '16px',
